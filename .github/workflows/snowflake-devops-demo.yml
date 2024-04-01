@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v2
-
+  
       - name: Use Python 3.8.x
         uses: actions/setup-python@v2.2.1
         with:
@@ -42,7 +42,16 @@ jobs:
           echo "Step 1: Installing schemachange"
           pip install schemachange
 
-          python ./testpy.py
-            
+          
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
+
+  Schema_extration:
+    name: Schema Extraction
+    runs-on: ubuntu-latest
+    needs: deploy-snowflake-changes-job
+    steps:
+      - name: running the python file
+        run: python ./testpy.py
+        
+      
