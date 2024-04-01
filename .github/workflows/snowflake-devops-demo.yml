@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: running the python file
         run: |
-          python chomd +x ./migrations/testpy.py
+          python ./migrations/testpy.py
         
         
       
