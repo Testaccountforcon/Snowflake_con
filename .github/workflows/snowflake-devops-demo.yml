@@ -55,6 +55,9 @@ jobs:
         uses: actions/checkout@v2
       - name: running the python file
         run: |
+          pip install pandas
+          
+          pip install snowflake-connector-python
           python ./migrations/testpy.py
         
         
