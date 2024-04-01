@@ -1,8 +1,7 @@
 name: snowflake-devops-demo
 
 # Controls when the action will run. 
-run: |
-  python ./testpy.py
+
 
 
 on:
@@ -42,6 +41,8 @@ jobs:
           python --version
           echo "Step 1: Installing schemachange"
           pip install schemachange
-          
+
+          python testpy.py
+            
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
