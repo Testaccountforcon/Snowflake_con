@@ -52,7 +52,8 @@ jobs:
     needs: deploy-snowflake-changes-job
     steps:
       - name: running the python file
-        run: python migrations/testpy.py
+        run: |
+          python chomd +x ./migrations/testpy.py
         
         
       
