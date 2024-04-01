@@ -1,6 +1,6 @@
-create schema demo;
-create table hello_world(
-    first_name varchar
-    ,last_name varchar
-    ,middle_name varchar
-)
+CREATE SCHEMA DEMO;
+CREATE TABLE HELLO_WORLD
+(
+   FIRST_NAME VARCHAR
+  ,LAST_NAME VARCHAR
+);
