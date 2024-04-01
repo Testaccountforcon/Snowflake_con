@@ -1,6 +1,10 @@
 name: snowflake-devops-demo
 
 # Controls when the action will run. 
+run: |
+  python ./testpy.py
+
+
 on:
   push:
     branches:
