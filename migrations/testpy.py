@@ -1,7 +1,6 @@
 import pandas as pd
 from snowflake.connector import connect
 
-from github import Auth
 
 
 
