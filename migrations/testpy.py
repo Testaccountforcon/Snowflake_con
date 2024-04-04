@@ -3,7 +3,7 @@ from snowflake.connector import connect
 import pandas as pd
 from snowflake.connector import connect
 
-from Github import Github
+from github import Github
 
 
 
