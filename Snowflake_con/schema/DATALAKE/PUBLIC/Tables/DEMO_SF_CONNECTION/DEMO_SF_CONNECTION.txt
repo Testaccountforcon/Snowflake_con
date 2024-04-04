@@ -1,3 +1,0 @@
-create or replace TABLE DEMO_SF_CONNECTION (
-	ID VARCHAR(16777216)
-);
