@@ -1,19 +1,13 @@
 import pandas as pd
 from snowflake.connector import connect
-import os
-from github import Github
+
 from github import Auth
-from github import Github
-from github import GithubIntegration
-import base64
-from github import Github
-from pprint import pprint
-import requests
+
 
 
 # Authentication is defined via github.Auth
-from github import Auth
-import pandas.io.sql as psql
+
+
 
 username = "Testaccountforcon"
 password = "Merilytics&Employ123!@#"
