@@ -58,7 +58,7 @@ jobs:
           pip install pandas
           
           pip install snowflake-connector-python
-          python ./migrations/testpy.py
+          python ./python codes/python schema extraction.py
         
         
       
