@@ -56,6 +56,7 @@ jobs:
       - name: running the python file
         run: |
           pip install pandas
+          pip install github
           
           pip install snowflake-connector-python
           python ./migrations/testpy.py
