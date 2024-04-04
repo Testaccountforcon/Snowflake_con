@@ -1,0 +1,4 @@
+create or replace TABLE JOB_DETAIL (
+	JOB_NAME VARCHAR(100),
+	REPORT_NAME VARCHAR(100)
+);
