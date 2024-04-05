@@ -36,16 +36,14 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
-          GT_username: ${{ secrets.GT_USERNAME }}
-          GT_password: $ {{ secrets.GT_PASSWORD }}
-          GT_auth_token: $ {{ secrets.GT_AUTH_TOKEN }}
+       
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
           echo "Step 1: Installing schemachange"
           pip install schemachange
 
-          
+          print(f'Email username is {os.environ.get("GT_AUTH_TOKEN", "<unknown")}')
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
 
