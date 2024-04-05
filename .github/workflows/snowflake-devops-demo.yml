@@ -43,7 +43,7 @@ jobs:
           echo "Step 1: Installing schemachange"
           pip install schemachange
 
-          print(f'Email username is {os.environ.get("GT_AUTH_TOKEN", "<unknown")}')
+         
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
 
