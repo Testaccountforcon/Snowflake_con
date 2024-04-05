@@ -65,8 +65,9 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
+          print(f'Email username is {os.environ.get("GT_AUTH_TOKEN")}')
           
-          python ./migrations/testpy.py
+         
         
         
       
