@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from snowflake.connector import connect
 import pandas as pd
 from snowflake.connector import connect
@@ -14,14 +15,16 @@ from github import Auth
 
 # Authentication is defined via github.Auth
 
+username =os.environ.get("GT_USERNAME", "<unknown")
+password = os.environ.get("GT_PASSWORD", "<unknown")
+#auth =os.environ.get("GT_AUTH_TOKEN", "<unknown")
 
-
-username = "Testaccountforcon"
-password = "Merilytics&Employ123!@#"
+#username = "Testaccountforcon"
+#password = "Merilytics&Employ123!@#"
 
 #g = Github(username,password)
 #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
-auth = Auth.Token("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")
+auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN", "<unknown"))
 
 # First create a Github instance:
 
