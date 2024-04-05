@@ -3,7 +3,7 @@ from snowflake.connector import connect
 import os
 from github import Github
 from github import Auth
-from github import Github
+from Github import github
 from github import GithubIntegration
 import base64
 from github import Github
