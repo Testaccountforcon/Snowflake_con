@@ -24,7 +24,7 @@ password = os.environ.get("GT_PASSWORD", "<unknown")
 
 #g = Github(username,password)
 #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
-auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN"))
+auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN", "<unknown"))
 
 # First create a Github instance:
 
