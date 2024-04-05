@@ -36,6 +36,9 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          GT_username: ${{ secrets.GT_USERNAME }}
+          GT_password: $ {{ secrets.GT_PASSWORD }}
+          GT_auth_token: $ {{ secrets.GT_AUTH_TOKEN }}
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
@@ -54,6 +57,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: running the python file
+        env:
+          GT_username: ${{ secrets.GT_USERNAME }}
+          GT_password: $ {{ secrets.GT_PASSWORD }}
+          GT_auth_token: $ {{ secrets.GT_AUTH_TOKEN }}
         run: |
           pip install pandas
           pip3 install PyGithub
