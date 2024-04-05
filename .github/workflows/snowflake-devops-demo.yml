@@ -42,7 +42,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-
+    needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
@@ -75,7 +75,7 @@ jobs:
   Schema_extration:
     name: Schema Extraction
     runs-on: ubuntu-latest
-    needs: deploy-snowflake-changes-job
+    needs: [deploy-snowflake-changes-job,schemachangecheck]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
