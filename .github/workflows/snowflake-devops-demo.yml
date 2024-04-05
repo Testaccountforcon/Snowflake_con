@@ -19,7 +19,7 @@ jobs:
   schemachangecheck:
     name: Schema Change Check
     runs-on: ubuntu-latest
-    needs: deploy-snowflake-changes-job
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
