@@ -65,7 +65,7 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
-          print($GT_AUTH_TOKEN)
+          print(f"API Key: {GT_auth_token}")
           
          
         
