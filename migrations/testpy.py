@@ -14,7 +14,7 @@ from github import Auth
 
 
 # Authentication is defined via github.Auth
-print(f'token is {os.environ.get("GT_AUTH_TOKEN", "<unknown>")}')
+print(f'token is {os.environ.get("GT_AUTH_TOKEN")}')
 username =os.environ.get("GT_USERNAME", "<unknown>")
 password = os.environ.get("GT_PASSWORD", "<unknown>")
 #auth =os.environ.get("GT_AUTH_TOKEN", "<unknown")
