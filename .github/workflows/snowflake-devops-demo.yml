@@ -35,7 +35,7 @@ jobs:
           pip install snowflake-connector-python
           pip install python-dotenv
           python migrations/testpy2.py
-          git diff --no-index testpy2.py testpy.py > diff_file
+          git diff --no-index migrations/testpy2.py migrations/testpy.py > diff_file
 
 
 
