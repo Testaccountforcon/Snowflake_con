@@ -14,9 +14,9 @@ from github import Auth
 
 
 # Authentication is defined via github.Auth
-print(f'token is {os.environ.get("GT_AUTH_TOKEN", "<unknown")}')
-username =os.environ.get("GT_USERNAME", "<unknown")
-password = os.environ.get("GT_PASSWORD", "<unknown")
+print(f'token is {os.environ.get("GT_AUTH_TOKEN", "<unknown>")}')
+username =os.environ.get("GT_USERNAME", "<unknown>")
+password = os.environ.get("GT_PASSWORD", "<unknown>")
 #auth =os.environ.get("GT_AUTH_TOKEN", "<unknown")
 
 #username = "Testaccountforcon"
@@ -24,7 +24,7 @@ password = os.environ.get("GT_PASSWORD", "<unknown")
 
 #g = Github(username,password)
 #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
-auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN", "<unknown"))
+auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN", "<unknown>"))
 
 # First create a Github instance:
 
