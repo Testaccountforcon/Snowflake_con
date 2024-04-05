@@ -5,7 +5,9 @@ import pandas as pd
 from snowflake.connector import connect
 
 from github import Github
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 # Authentication is defined via github.Auth
