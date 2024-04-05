@@ -52,7 +52,7 @@ connection = connect(
     )
 cur = connection.cursor()
 databases = ['DEMO_DB']
-parent_dir = 'Snowflake_con/schema'
+parent_dir = 'Reference Schema'
 for i in databases:
     db_directory = i
   
