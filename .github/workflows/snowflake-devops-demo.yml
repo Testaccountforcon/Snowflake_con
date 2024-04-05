@@ -65,6 +65,7 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
+          
           python ./migrations/testpy.py
         
         
