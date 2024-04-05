@@ -23,7 +23,7 @@ from github import Auth
 
  #username = "Testaccountforcon"
  #password = "Merilytics&Employ123!@#"
-b = os.environ['GT_AUTH_TOKEN']
+b = os.environ['GT_auth_token']
 print(b)
  #g = Github(username,password)
  #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
