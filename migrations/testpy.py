@@ -26,7 +26,7 @@ from github import Auth
 
  #g = Github(username,password)
  #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
-auth = Auth.Token(os.getenv("GT_AUTH_TOKEN"))
+auth = Auth.Token(os.environ.get("GT_AUTH_TOKEN"))
 
 # First create a Github instance:
 
