@@ -21,7 +21,7 @@ password = "Merilytics&Employ123!@#"
 
 #g = Github(username,password)
 #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
-auth = Auth.Token("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")
+auth = Auth.Token("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")
 
 # First create a Github instance:
 
