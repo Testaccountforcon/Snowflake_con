@@ -109,8 +109,8 @@ for i in databases:
                     #  a=a.append(file_1)
                     repo_name = g.get_user().get_repo("Snowflake_con")
                   
-                    contents_1 = file_1.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
-                    contents_2 = file_2.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
                     if(contents_1 == contents_2):
                      print("aight")
                     else:
