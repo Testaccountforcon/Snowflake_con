@@ -104,9 +104,9 @@ for i in databases:
                     repo.create_file(def_file_path, "message", output, branch="master")
                     file_1 = def_file_path
                     file_2  = "Reference Schema" + "/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt"
-                    result_deep = filecmp.cmp(file1, file2, shallow=False)
+                    result_deep = filecmp.cmp(file_1, file_2, shallow=False)
                     if( result_deep == False):
-                     a=a.append(file1)
+                     a=a.append(file_1)
                     
                  
         else:
