@@ -132,5 +132,4 @@ else:
 # print(f"::set-output name=j_status::{jobstatus}")
 # print(jobstatus)
 
-echo "test= jobstatus" >> "$GITHUB_OUTPUT"
-echo "test2 = a" >> "$GITHUB_OUTPUT"
+
