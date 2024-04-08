@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: running the python file
+      - name: running_the_python_file
         env:
           GT_username: ${{ secrets.GT_USERNAME }}
           GT_password: ${{ secrets.GT_PASSWORD }}
@@ -44,7 +44,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-    if: ${{ steps.running the python file.outputs.j_status == "Success" }}
+    
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
