@@ -8,7 +8,7 @@ from github import Github
 from dotenv import load_dotenv
 import filecmp
 load_dotenv()
-
+from github import GithubIntegration
 
 # Authentication is defined via github.Auth
 from github import Auth
