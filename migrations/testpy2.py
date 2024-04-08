@@ -130,4 +130,5 @@ else:
  jobstatus = "Fail"
 print(f"::set-output name=test_report::{a}")
 print(f"::set-output name=j_status::{jobstatus}")
+print(jobstatus)
 
