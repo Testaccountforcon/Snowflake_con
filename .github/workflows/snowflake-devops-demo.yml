@@ -19,7 +19,9 @@ jobs:
   schemachangecheck:
     name: Schema Change Check
     runs-on: ubuntu-latest
-    
+    outputs:
+      output1: ${{ steps.pycode.outputs.test }}
+      output2: ${{ steps.pycode.outputs.test2 }}
     
     steps:
       - name: Checkout repository
@@ -29,7 +31,10 @@ jobs:
           GT_username: ${{ secrets.GT_USERNAME }}
           GT_password: ${{ secrets.GT_PASSWORD }}
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
+        
+      - id : pycode
         run: |
+        
           pip install pandas
           pip3 install PyGithub
           pip install auth
@@ -44,7 +49,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-    if: ${{ (needs.steps.outputs.j_status != 'Fail') }}
+    if: ${{ (needs.schemachangecheck.outputs.test != 'Fail') }}
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
