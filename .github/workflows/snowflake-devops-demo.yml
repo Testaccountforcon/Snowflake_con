@@ -34,8 +34,9 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
+          pip install filecmp
           python migrations/testpy2.py
-          git diff --no-index migrations/testpy.py migrations/testpy2.py > diff_file
+          
 
 
 
