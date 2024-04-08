@@ -20,6 +20,7 @@ jobs:
     name: Schema Change Check
     runs-on: ubuntu-latest
     
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -43,6 +44,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
+    if: ${{ steps.running the python file.outputs.j_status == "Success" }}
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
