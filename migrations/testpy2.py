@@ -102,7 +102,7 @@ for i in databases:
                       #  f.close()
                        # print("write done")
                     repo.create_file(def_file_path, "message", output, branch="master")
-                    file_1 = def_file_path
+                    file_1 = "Snowflake_con" + def_file_path
                     file_2  = "Reference Schema" + "/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt"
                     result_deep = filecmp.cmp(file_1, file_2, shallow=False)
                     if( result_deep == False):
