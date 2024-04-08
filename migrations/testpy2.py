@@ -6,7 +6,7 @@ from snowflake.connector import connect
 
 from github import Github
 from dotenv import load_dotenv
-
+import filecmp
 load_dotenv()
 
 
@@ -28,7 +28,7 @@ print(b)
  #g = Github(username,password)
  #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
 auth = Auth.Token(b)
-
+a=[]
 # First create a Github instance:
 
 # Public Web Github
@@ -102,9 +102,14 @@ for i in databases:
                       #  f.close()
                        # print("write done")
                     repo.create_file(def_file_path, "message", output, branch="master")
-                  
+                    file_1 = def_file_path
+                    file_2  = "Reference Schema" + "/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt"
+                    result_deep = filecmp.cmp(file1, file2, shallow=False)
+                    if( result_deep == False):
+                     a=a.append(file1)
+                    
                  
         else:
              g=0
-        
-        
+
+print(a)
