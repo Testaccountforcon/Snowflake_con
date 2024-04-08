@@ -34,7 +34,7 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
-          pip install filecmp
+          
           python migrations/testpy2.py
           
 
