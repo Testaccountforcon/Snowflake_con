@@ -81,9 +81,9 @@ for i in databases:
         tables_sql = cur.execute(f"show tables in {db_schema}")
         print(tables_sql)
         if cur.rowcount!=0:
-            g=1
+            f=1
         else:
-            g=0
+            f=0
         if cur.rowcount!=0:
              tables_df = pd.DataFrame(cur.fetchall())
              tables_df.columns = [column[0] for column in cur.description]
@@ -118,6 +118,6 @@ for i in databases:
                     
                  
         else:
-             g=0
+             f=0
 
 print(a)
