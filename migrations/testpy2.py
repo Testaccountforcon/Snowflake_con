@@ -53,6 +53,8 @@ connection = connect(
 cur = connection.cursor()
 databases = ['DEMO_DB']
 parent_dir = 'latest schema pull'
+contents = repo.get_contents("latest schema pull")
+
 for i in databases:
     db_directory = i
   
@@ -111,7 +113,7 @@ for i in databases:
                   
                     contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
                     contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
-                    if(contents_1 == contents_2):
+                    if(contents_1.decode_content.decode() == contents_2.decode_content.decode()):
                      print("aight")
                     else:
                      print ("Error")
