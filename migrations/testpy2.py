@@ -123,5 +123,11 @@ for i in databases:
                  
         else:
              f=0
-
+jobstatus="Success"
+if(a==[])
+ jobstatus="Success"
+else:
+ jobstatus = "Fail"
 print(f"::set-output name=test_report::{a}")
+print(f"::set-output name=j_status::{Job_status}")
+
