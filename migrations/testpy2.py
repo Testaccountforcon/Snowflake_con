@@ -124,7 +124,7 @@ for i in databases:
         else:
              f=0
 jobstatus="Success"
-if(a==[])
+if(a==[]):
  jobstatus="Success"
 else:
  jobstatus = "Fail"
