@@ -124,4 +124,4 @@ for i in databases:
         else:
              f=0
 
-print(a)
+print(f"::set-output name=test_report::{a}")
