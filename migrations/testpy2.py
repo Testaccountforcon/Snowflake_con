@@ -53,7 +53,7 @@ connection = connect(
 cur = connection.cursor()
 databases = ['DEMO_DB']
 parent_dir = 'latest schema pull'
-contents = repo.get_contents("latest schema pull")
+
 
 for i in databases:
     db_directory = i
