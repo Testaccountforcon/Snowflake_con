@@ -107,11 +107,11 @@ for i in databases:
                     # result_deep = filecmp.cmp(file_1, file_2, shallow=False)
                     # if( result_deep == False):
                     #  a=a.append(file_1)
-                    file_1 = g.get_repo("Snowflake_con")
-                    file_2 = g.get_repo("latest schema pull"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k)
-                    contents_1 = file_1.get_contents(k +".txt")
-                    contents_2 = file_2.get_contents(k +".txt")
-                    if(contents_1 == contetns_2):
+                    repo_name = g.get_user().get_repo("Snowflake_con")
+                  
+                    contents_1 = file_1.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    contents_2 = file_2.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    if(contents_1 == contents_2):
                      print("aight")
                     else:
                      print ("Error")
