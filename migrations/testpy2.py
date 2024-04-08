@@ -114,9 +114,11 @@ for i in databases:
                     contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
                     contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
                     if(contents_1.decoded_content.decode() == contents_2.decoded_content.decode()):
-                     print("aight")
+                     print("match")
                     else:
+                     a.append(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
                      print ("Error")
+                     
                     
                  
         else:
