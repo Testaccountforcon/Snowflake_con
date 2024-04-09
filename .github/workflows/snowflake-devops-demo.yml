@@ -48,7 +48,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-    
+    if: if [chemacheck.txt]
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
