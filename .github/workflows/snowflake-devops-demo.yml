@@ -41,7 +41,7 @@ jobs:
           pip install python-dotenv
          
           python migrations/testpy2.py
-          echo "$foo"
+          
 
 
 
