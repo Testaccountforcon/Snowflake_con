@@ -125,7 +125,7 @@ for i in databases:
              f=0
 jobstatus="Success"
 if(a==[]):
- jobstatus="Success"
+ jobstatus=""
 else:
  jobstatus = "Fail"
 s=''.join(a)
