@@ -128,7 +128,15 @@ if(a==[]):
  jobstatus="Success"
 else:
  jobstatus = "Fail"
-# print(f"::set-output name=test_report::{a}")
+
+
+env_file = os.getenv('GITHUB_ENV')
+
+bar='bar'
+
+with open(env_file, "a") as myfile:
+    myfile.write(f"foo={jobstatus}")
+ #print(f"::set-output name=test_report::{jobstatus}")
 # print(f"::set-output name=j_status::{jobstatus}")
 # print(jobstatus)
 
