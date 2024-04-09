@@ -19,7 +19,7 @@ jobs:
   schemachangecheck:
     name: Schema Change Check
     runs-on: ubuntu-latest
-    if: ${{ env.foo == "Success"}}
+    
     
     
     steps:
@@ -48,7 +48,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-   
+    if: ${{ env.foo == "Success"}}
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
