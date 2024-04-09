@@ -48,7 +48,7 @@ jobs:
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
-    if: if [chemacheck.txt]
+    
     needs: schemachangecheck
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -77,7 +77,7 @@ jobs:
 
          
           echo "Step 2: Running schemachange"
-          schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
+          if [chemacheck.txt] ; then schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY fi
 
   Schema_extration:
     name: Schema Extraction
