@@ -128,7 +128,7 @@ if(a==[]):
  jobstatus="Success"
 else:
  jobstatus = "Fail"
-
+s=''.join(a)
 repo.create_file("chemacheck.txt", jobstatus, output, branch="master")
 repo.create_file("diff.txt", a, output, branch="master")
 
