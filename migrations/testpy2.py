@@ -130,7 +130,7 @@ else:
  jobstatus = "Fail"
 s=''.join(a)
 repo.create_file("chemacheck.txt", "jobstatus", jobstatus, branch="master")
-repo.create_file("diff.txt", s, "diff", branch="master")
+repo.create_file("diff.txt", "diff", s, branch="master")
 
 
 
