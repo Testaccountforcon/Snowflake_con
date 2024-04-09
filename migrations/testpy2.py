@@ -129,15 +129,8 @@ if(a==[]):
 else:
  jobstatus = "Fail"
 
+repo.create_file("chemacheck.txt", jobstatus, output, branch="master")
+repo.create_file("diff.txt", a, output, branch="master")
 
-env_file = os.getenv('GITHUB_ENV')
-
-bar='bar'
-
-with open(env_file, "a") as myfile:
-    myfile.write(f"foo={jobstatus}")
- #print(f"::set-output name=test_report::{jobstatus}")
-# print(f"::set-output name=j_status::{jobstatus}")
-# print(jobstatus)
 
 
