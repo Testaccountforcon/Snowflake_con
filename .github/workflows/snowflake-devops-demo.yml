@@ -19,7 +19,8 @@ jobs:
   schemachangecheck:
     name: Schema Change Check
     runs-on: ubuntu-latest
-
+    outputs:
+      output1: ${{ steps.script.outputs.bool }}
     
     steps:
       - name: Checkout repository
@@ -38,7 +39,7 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
-          
+          git diff testpy.py testpy2.py
           python migrations/testpy2.py
           
 
