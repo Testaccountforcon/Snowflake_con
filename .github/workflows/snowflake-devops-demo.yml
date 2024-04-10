@@ -39,8 +39,7 @@ jobs:
           pip install snowflake-connector-python
           pip install python-dotenv
           git rm -r latest\ schema\ pull
-          git commit -m 'myFolder is deleted'
-          git push
+          git commit --author="A U Thor <sunit_tanwar@merilytics.com>" 
           python migrations/testpy2.py
           git ls-files
           
