@@ -79,7 +79,7 @@ jobs:
           echo "Step 2: Running schemachange"
           pwd
     
-          if [ -s chemacheck.txt ]
+          if [ $(wc -c < "chemacheck.txt") -eq 0 ];
           then
 
           
