@@ -46,6 +46,8 @@ jobs:
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Testaccountforcon"
           git rm -rf latest\ schema\ pull
+          git rm -rf migrations/diff.txt
+          git rm -rf migrations/chemachange.txt
           git commit -m "commit message"
           git push origin master
           python migrations/testpy2.py
