@@ -35,6 +35,7 @@ a=[]
 g = Github(auth=auth)
 for repo in g.get_user().get_repos():
     print(repo.name)
+ 
 # repo = g.get_repo("Testaccountforcon/Snowflake_con")
 # #repo.create_file("test.txt", "test", "test", branch="test")
 # contents = repo.get_contents("")
@@ -125,9 +126,9 @@ for i in databases:
              f=0
 jobstatus="Success"
 if(a==[]):
- jobstatus=""
+ jobstatus="change"
 else:
- jobstatus = "Change detected"
+ jobstatus = ""
 s=''.join(a)
 repo.create_file("migrations/chemacheck.txt", "jobstatus", jobstatus, branch="master")
 repo.create_file("migrations/diff.txt", "diff", s, branch="master")
