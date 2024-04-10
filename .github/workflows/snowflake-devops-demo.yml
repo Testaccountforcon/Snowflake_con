@@ -77,9 +77,9 @@ jobs:
           
                    
           echo "Step 2: Running schemachange"
-          pwd
-    
-          if ! grep -q . "./chemacheck.txt";
+          s= pwd
+          var = chemacheck.txt
+          if ! grep -q . "${s/var}";
           then
 
           echo "empty file detected"
