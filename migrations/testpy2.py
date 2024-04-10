@@ -129,8 +129,8 @@ if(a==[]):
 else:
  jobstatus = "fail"
 s=''.join(a)
-repo.create_file("chemacheck.txt", "jobstatus", jobstatus, branch="master")
-repo.create_file("diff.txt", "diff", s, branch="master")
+repo.create_file("migrations/chemacheck.txt", "jobstatus", jobstatus, branch="master")
+repo.create_file("migrtions/diff.txt", "diff", s, branch="master")
 
 
 
