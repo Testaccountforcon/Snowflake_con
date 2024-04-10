@@ -1,1 +1,0 @@
-latest schema pull/DEMO_DB/PUBLIC/Tables/LATEST_HELLO_WORLD/LATEST_HELLO_WORLD.txt
