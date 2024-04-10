@@ -77,7 +77,7 @@ jobs:
           
                    
           echo "Step 2: Running schemachange"
-          pwd
+          
           
           
           git ls-files
