@@ -50,7 +50,10 @@ jobs:
           git rm -rf migrations/chemacheck.txt
           git commit -m "commit message"
           git push origin master
-          python migrations/testpy2.py
+          if ! grep -q . "migrations/chemacheck.txt";
+          then
+            python migrations/testpy2.py
+          fi
           git ls-files
           
 
