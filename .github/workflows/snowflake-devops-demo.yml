@@ -78,7 +78,7 @@ jobs:
                    
           echo "Step 2: Running schemachange"
           
-          if ! grep -q . "./chemacheck.txt";
+          if ! grep -q . "/home/runner/work/Snowflake_con/Snowflake_con/chemacheck.txt";
           then
             schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
           fi
