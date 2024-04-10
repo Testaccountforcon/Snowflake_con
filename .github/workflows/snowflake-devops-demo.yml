@@ -41,7 +41,7 @@ jobs:
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Testaccountforcon"
           git rm -r latest\ schema\ pull
-          git commit
+          git commit -m "deleted"
           python migrations/testpy2.py
           git ls-files
           
