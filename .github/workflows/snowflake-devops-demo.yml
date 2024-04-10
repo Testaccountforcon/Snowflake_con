@@ -38,8 +38,10 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
+          git config --global user.email "sunit_tanwar@merilytics.com"
+          git config --global user.name "Testaccountforcon"
           git rm -r latest\ schema\ pull
-          git commit --author="A U Thor <sunit_tanwar@merilytics.com>" 
+          git commit
           python migrations/testpy2.py
           git ls-files
           
