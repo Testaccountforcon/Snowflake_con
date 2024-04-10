@@ -81,7 +81,7 @@ jobs:
           
           
           git ls-files
-          if ! grep -q . "chemacheck.txt";
+          if ! grep -q . "migrations/chemacheck.txt";
           then
 
             echo "empty file detected"
