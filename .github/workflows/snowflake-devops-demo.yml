@@ -80,7 +80,7 @@ jobs:
           pwd
           
           
-          git ls-files | grep .sh
+          git ls-files
           if ! grep -q . "chemacheck.txt";
           then
 
