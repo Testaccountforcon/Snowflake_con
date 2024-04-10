@@ -125,9 +125,9 @@ for i in databases:
              f=0
 jobstatus="Success"
 if(a==[]):
- jobstatus=""
+ jobstatus="success"
 else:
- jobstatus = ""
+ jobstatus = "fail"
 s=''.join(a)
 repo.create_file("chemacheck.txt", "jobstatus", jobstatus, branch="master")
 repo.create_file("diff.txt", "diff", s, branch="master")
