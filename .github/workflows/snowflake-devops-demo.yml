@@ -77,8 +77,8 @@ jobs:
 
                    
           echo "Step 2: Running schemachange"
-        
-          if ! grep -q . "chemacheck.txt";
+          file_name = "chemacheck.txt"
+          if ! grep -q . "${file_name}";
           then
             schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
           fi
