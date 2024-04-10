@@ -42,6 +42,7 @@ jobs:
           git config --global user.name "Testaccountforcon"
           git rm -r latest\ schema\ pull
           git commit -m "deleted"
+          git push
           python migrations/testpy2.py
           git ls-files
           
