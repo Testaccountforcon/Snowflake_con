@@ -127,10 +127,10 @@ jobstatus="Success"
 if(a==[]):
  jobstatus=""
 else:
- jobstatus = ""
+ jobstatus = "Change detected"
 s=''.join(a)
-repo.create_file("chemacheck.txt", "jobstatus", jobstatus, branch="master")
-repo.create_file("diff.txt", "diff", s, branch="master")
+repo.create_file("migrations/chemacheck.txt", "jobstatus", jobstatus, branch="master")
+repo.create_file("migrations/diff.txt", "diff", s, branch="master")
 
 
 
