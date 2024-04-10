@@ -38,6 +38,7 @@ jobs:
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
+          git rm -r latest schema pull
           python migrations/testpy2.py
           git ls-files
           
