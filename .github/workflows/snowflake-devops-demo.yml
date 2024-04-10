@@ -33,18 +33,14 @@ jobs:
         
 
         run: |
-        
           pip install pandas
           pip3 install PyGithub
           pip install auth
           pip install snowflake-connector-python
           pip install python-dotenv
-         
           python migrations/testpy2.py
+          git ls-flies
           
-
-
-
 
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
