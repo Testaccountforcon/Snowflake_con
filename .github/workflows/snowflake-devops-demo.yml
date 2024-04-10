@@ -79,10 +79,13 @@ jobs:
           echo "Step 2: Running schemachange"
           s= pwd
           var = chemacheck.txt
-          if ! grep -q . "${s/var}";
+          echo s
+          echo var
+          echo "${s}/${var}"
+          if ! grep -q . "${s}/${var}";
           then
 
-          echo "empty file detected"
+            echo "empty file detected"
             schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
           fi
   Schema_extration:
