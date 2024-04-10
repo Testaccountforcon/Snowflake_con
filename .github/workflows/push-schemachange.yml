@@ -1,0 +1,67 @@
+name: push-schemachange
+on:
+  workflow_run:
+    workflows: ["deploy-snowflake-changes-job"]
+    types:
+      - completed
+
+
+    
+jobs:
+
+  
+  deploy-snowflake-changes-job:
+    runs-on: ubuntu-latest
+    
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v2
+  
+      - name: Use Python 3.8.x
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: 3.8.x
+
+      - name: Run schemachange
+        env:
+          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
+          SF_ROLE: ${{ secrets.SF_ROLE }}
+          SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
+          SF_DATABASE: ${{ secrets.SF_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
+        
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          python --version
+          echo "Step 1: Installing schemachange"
+          pip install schemachange        
+          echo "Step 2: Running schemachange"
+          git ls-files
+          if ! grep -q . "migrations/chemacheck.txt";
+          then
+            echo "empty file detected"
+            schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
+          fi
+  Schema_extration:
+    name: Schema Extraction
+    runs-on: ubuntu-latest
+    needs: deploy-snowflake-changes-job
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: running the python file
+        env:
+          GT_username: ${{ secrets.GT_USERNAME }}
+          GT_password: ${{ secrets.GT_PASSWORD }}
+          GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
+        run: |
+          pip install pandas
+          pip3 install PyGithub
+          pip install auth
+          pip install snowflake-connector-python
+          pip install python-dotenv
+          python migrations/testpy.py
+          
