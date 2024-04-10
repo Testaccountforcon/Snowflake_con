@@ -79,7 +79,7 @@ jobs:
           echo "Step 2: Running schemachange"
           pwd
     
-          if ! grep -q . "chemacheck.txt";
+          if ! grep -q . "./chemacheck.txt";
           then
 
           echo "empty file detected"
