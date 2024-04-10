@@ -39,7 +39,7 @@ jobs:
           pip install snowflake-connector-python
           pip install python-dotenv
           python migrations/testpy2.py
-          git ls-flies
+          git ls-files
           
 
   deploy-snowflake-changes-job:
