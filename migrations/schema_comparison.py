@@ -3,6 +3,7 @@ import os
 from snowflake.connector import connect
 from github import Github
 from dotenv import load_dotenv
+from ffcount import ffcount
 load_dotenv()
 from github import GithubIntegration
 
@@ -34,6 +35,14 @@ cur = connection.cursor()
 databases = ['DEMO_DB']
 parent_dir = 'latest schema pull'
 
+def count_files_in_directory(directory_path):
+    num_files, _ = ffcount(directory_path)
+    return num_files
+
+# Example usage
+folder_path = "latest schema pull"
+file_count = count_files_in_directory(folder_path)
+print(f"Total number of files in the folder: {file_count}")
 
 for i in databases:
     db_directory = i
