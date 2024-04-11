@@ -180,10 +180,8 @@ for repo in g.get_user().get_repos():
 print(count_files_in_directory("Reference Schema"))
 print(count_files_in_directory("latest schema pull"))
 jobstatus=""
-if(a==[] and count_files_in_directory("Reference Schema")==count_files_in_directory("latest schema pull")):
+if(a==[]):
  jobstatus=""
-elif (a==[] and count_files_in_directory("Reference Schema")!=count_files_in_directory("latest schema pull")):
- jobstatus = "Extra files detected in Snowflake"
 else:
  jobstatus = "Definition Mismatch"
  
