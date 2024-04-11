@@ -36,6 +36,7 @@ jobs:
           pip install pandas
           pip3 install PyGithub
           pip install auth
+          pip install ffcount
           pip install snowflake-connector-python
           pip install python-dotenv
           git config --global user.email "sunit_tanwar@merilytics.com"
