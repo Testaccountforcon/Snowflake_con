@@ -3,7 +3,7 @@ name: snowflake-devops-demo
 # Controls when the action will run. 
 
 
- 
+
 on:
   push:
     branches:
@@ -32,7 +32,7 @@ jobs:
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
         
 
-      - run: |
+        run: |
           pip install pandas
           pip3 install PyGithub
           pip install auth
@@ -46,10 +46,7 @@ jobs:
           git rm -rf migrations/schemacheck.txt
           git commit -m "commit message"
           git push origin master
+          
           python migrations/schema_comparison.py
           git ls-files
-
-         
-        
-        
-      
+          
