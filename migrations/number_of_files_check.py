@@ -1,7 +1,7 @@
 
 import pandas as pd
 import os
-from snowflake.connector import connect
+
 from github import Github
 from dotenv import load_dotenv
 from ffcount import ffcount
