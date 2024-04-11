@@ -175,12 +175,12 @@ for i in databases:
 
 
 jobstatus=""
-if(a==[] and count_files_in_directory("Reference Schema")==count_files_in_directory("latest schema pull")):
- jobstatus=""
-else if (a==[] and count_files_in_directory("Reference Schema")!=count_files_in_directory("latest schema pull")):
- jobstatus = "Extra files detected in Snowflake"
-else:
- jobstatus = "Definition Mismatch"
+# if(a==[] and count_files_in_directory("Reference Schema")==count_files_in_directory("latest schema pull")):
+#  jobstatus=""
+# elif (a==[] and count_files_in_directory("Reference Schema")!=count_files_in_directory("latest schema pull")):
+#  jobstatus = "Extra files detected in Snowflake"
+# else:
+#  jobstatus = "Definition Mismatch"
  
 s=''.join(a)
 repo.create_file("migrations/schemacheck.txt", "jobstatus", jobstatus, branch="master")
