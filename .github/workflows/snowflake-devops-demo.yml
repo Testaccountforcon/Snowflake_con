@@ -45,10 +45,9 @@ jobs:
           # git rm -rf migrations/schemacheck.txt
           git commit -m "commit message"
           git push origin master
-          if ! grep -q . "migrations/schemacheck.txt";
-          then
-            python migrations/schema_comparison.py
-          fi
+          
+          python migrations/schema_comparison.py
+          
           diff -Naur latest\ schema\ pull Reference\ Schema > migrations/schemacheck.txt
 
           git ls-files
