@@ -1,6 +1,5 @@
 use demo_db;
 create or replace view test_view(
-     FIRST_NAME  VARCHAR
-  ,LAST_NAME VARCHAR
-   ,address varchar
+     select *
+     from demo_db.demo.hello_world
 );
