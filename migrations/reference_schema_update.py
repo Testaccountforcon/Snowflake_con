@@ -122,7 +122,7 @@ for i in databases:
         procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
         db_schema=i +"." + j
         print (db_schema)
-        procedures_sql = cur.execute(f"show views in {db_schema}")
+        procedures_sql = cur.execute(f"show procedures in {db_schema}")
         
         print(procedures_sql)
 
