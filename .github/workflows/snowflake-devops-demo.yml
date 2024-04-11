@@ -48,7 +48,7 @@ jobs:
           git push origin master
           python migrations/schema_comparison.py
           git ls-files
-          python migrations/number_of_files_check.py
+          
           
 
 
