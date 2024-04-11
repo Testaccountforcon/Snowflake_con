@@ -59,15 +59,18 @@ jobs:
           GT_password: ${{ secrets.GT_PASSWORD }}
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
         run: |
-          pip install pandas
-          pip3 install PyGithub
-          pip install auth
-          pip install snowflake-connector-python
-          pip install python-dotenv
-          git config --global user.email "sunit_tanwar@merilytics.com"
-          git config --global user.name "Testaccountforcon"
-          git rm -rf Reference\ Schema
-          git commit -m "commit message"
-          git push origin master
-          python migrations/testpy.py
+          if ! grep -q . "migrations/chemacheck.txt";
+          then
+            pip install pandas
+            pip3 install PyGithub
+            pip install auth
+            pip install snowflake-connector-python
+            pip install python-dotenv
+            git config --global user.email "sunit_tanwar@merilytics.com"
+            git config --global user.name "Testaccountforcon"
+            git rm -rf Reference\ Schema
+            git commit -m "commit message"
+            git push origin master
+            python migrations/testpy.py
+          fi  
           
