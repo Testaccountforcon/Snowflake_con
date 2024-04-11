@@ -32,24 +32,25 @@ jobs:
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
         
 
-      - run: pip install pandas
-      - run: pip3 install PyGithub
-      - run: pip install auth
-      - run: pip install ffcount
-      - run: pip install snowflake-connector-python
-      - run: pip install python-dotenv
-      - run: git config --global user.email "sunit_tanwar@merilytics.com"
-      - run: git config --global user.name "Testaccountforcon"
-      - run: git rm -rf latest\ schema\ pull
-      - run: git rm -rf migrations/diff.txt
-      - run: git rm -rf migrations/schemacheck.txt
-      - run: git commit -m "commit message"
-      - run: git push origin master
-      - run: |    
+      - run: |
+          pip install pandas
+          pip3 install PyGithub
+          pip install auth
+          pip install ffcount
+          pip install snowflake-connector-python
+          pip install python-dotenv
+          git config --global user.email "sunit_tanwar@merilytics.com"
+          git config --global user.name "Testaccountforcon"
+          git rm -rf latest\ schema\ pull
+          git rm -rf migrations/diff.txt
+          git rm -rf migrations/schemacheck.txt
+          git commit -m "commit message"
+          git push origin master
+        
           python migrations/schema_comparison.py
           git ls-files
-        
-      - run: python migrations/number_of_files_check.py
+       
+          python migrations/number_of_files_check.py
           
 
 
