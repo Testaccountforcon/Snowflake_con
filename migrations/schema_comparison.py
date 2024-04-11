@@ -173,7 +173,8 @@ for i in databases:
                
            
 
-
+print(count_files_in_directory("Reference Schema"))
+print(count_files_in_directory("latest schema pull"))
 jobstatus=""
 if(a==[] and count_files_in_directory("Reference Schema")==count_files_in_directory("latest schema pull")):
  jobstatus=""
