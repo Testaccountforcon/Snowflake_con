@@ -31,7 +31,7 @@ jobs:
         
 
         run: |
-          python number_of_files_check.py
+          python migrations/number_of_files_check.py
           
           
           
