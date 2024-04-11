@@ -35,14 +35,14 @@ jobs:
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         
         run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          python --version
-          echo "Step 1: Installing schemachange"
-          pip install schemachange        
-          echo "Step 2: Running schemachange"
-          git ls-files
-          if ! grep -q . "migrations/chemacheck.txt";
+          if ! grep -q . "migrations/schemacheck.txt";
           then
+            echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+            python --version
+            echo "Step 1: Installing schemachange"
+            pip install schemachange        
+            echo "Step 2: Running schemachange"
+            git ls-files
             echo "empty file detected"
             schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
           fi
@@ -59,7 +59,7 @@ jobs:
           GT_password: ${{ secrets.GT_PASSWORD }}
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
         run: |
-          if ! grep -q . "migrations/chemacheck.txt";
+          if ! grep -q . "migrations/schemacheck.txt";
           then
             pip install pandas
             pip3 install PyGithub
@@ -71,6 +71,6 @@ jobs:
             git rm -rf Reference\ Schema
             git commit -m "commit message"
             git push origin master
-            python migrations/testpy.py
+            python migrations/reference_schema_update.py
           fi  
           
