@@ -47,7 +47,7 @@ jobs:
           git push origin master
           
           python migrations/schema_comparison.py
-          
+          git pull
           git diff latest\ schema\ pull Reference\ Schema > migrations/schemacheck.txt
           git commit -m "commit message"
           git push origin master
