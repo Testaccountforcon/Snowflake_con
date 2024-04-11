@@ -127,6 +127,7 @@ for i in databases:
         print(procedures_sql)
 
         if cur.rowcount!=0:
+            if(k!='SYSTEM$SEND_EMAIL'):
              procedures_df = pd.DataFrame(cur.fetchall())
              procedures_df.columns = [column[0] for column in cur.description]
              for k in procedures_df['name']:
