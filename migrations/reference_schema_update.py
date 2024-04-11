@@ -132,7 +132,7 @@ for i in databases:
              for k in procedures_df['name']:
                     path = (parent_dir+ db_directory+sc_directory+'Procedures'+k)
                     db_schema_procedures=i+"."+j+"."+k
-                    definition_cursor= cur.execute(f"select get_ddl  ('Procedures','{db_schema_procedures}');") 
+                    definition_cursor= cur.execute(f"select get_ddl  ('procedure','{db_schema_procedures}');") 
                     results=cur.fetchall()
                     def_file_path=parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt"
                     print(def_file_path)
