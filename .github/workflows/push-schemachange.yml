@@ -1,7 +1,7 @@
 name: push-schemachange
 on:
   workflow_run:
-    workflows: ["snowflake-devops-demo"]
+    workflows: ["count_check"]
     types:
       - completed
   # Allows you to run this workflow manually from the Actions tab
