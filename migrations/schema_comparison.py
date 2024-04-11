@@ -39,10 +39,7 @@ def count_files_in_directory(directory_path):
     num_files, _ = ffcount(directory_path)
     return num_files
 
-# Example usage
-folder_path = "Reference Schema"
-file_count = count_files_in_directory(folder_path)
-print(f"Total number of files in the folder: {file_count}")
+
 
 for i in databases:
     db_directory = i
@@ -178,10 +175,13 @@ for i in databases:
 
 
 jobstatus=""
-if(a==[]):
+if(a==[] and count_files_in_directory("Reference Schema")==count_files_in_directory("latest schema pull")):
  jobstatus=""
+else if (a==[] and count_files_in_directory("Reference Schema")!=count_files_in_directory("latest schema pull")):
+ jobstatus = "Extra files detected in Snowflake"
 else:
- jobstatus = "change"
+ jobstatus = "Definition Mismatch"
+ 
 s=''.join(a)
 repo.create_file("migrations/schemacheck.txt", "jobstatus", jobstatus, branch="master")
 repo.create_file("migrations/diff.txt", "diff", s, branch="master")
