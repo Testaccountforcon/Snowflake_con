@@ -25,7 +25,7 @@ def count_files_in_directory(directory_path):
     num_files, _ = ffcount(directory_path)
     return num_files
 
-if(count_files_in_directory("latest schema pull") != count_files_in_directory("Reference Schema"):
+if(count_files_in_directory("latest schema pull") != count_files_in_directory("Reference Schema")):
   repo = g.get_user().get_repo("Snowflake_con")
   file = repo.get_file_contents("migrations/schemacheck.txt")
 
