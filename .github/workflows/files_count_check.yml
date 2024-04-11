@@ -1,3 +1,4 @@
+
 name: files_count_check
 
 # Controls when the action will run. 
@@ -31,6 +32,10 @@ jobs:
         
 
         run: |
+          pip install pandas
+          pip3 install PyGithub
+          pip install auth
+          pip install ffcount
           python migrations/number_of_files_check.py
           
           
