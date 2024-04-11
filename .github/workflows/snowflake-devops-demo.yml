@@ -49,6 +49,7 @@ jobs:
           
           python migrations/schema_comparison.py
           git ls-files
+          python number_of_files_check.py
           
 
 
