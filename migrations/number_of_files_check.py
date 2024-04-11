@@ -5,7 +5,7 @@ import os
 from github import Github
 
 from ffcount import ffcount
-load_dotenv()
+
 from github import GithubIntegration
 
 # Authentication is defined via github.Auth
