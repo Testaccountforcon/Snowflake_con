@@ -88,6 +88,7 @@ for i in databases:
     print(df)
     
     for j in df['name']:
+       if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
         #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
         viewspath = (parent_dir+ db_directory+sc_directory+'Views')
