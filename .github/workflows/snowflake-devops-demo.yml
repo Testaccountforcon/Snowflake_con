@@ -3,7 +3,7 @@ name: snowflake-devops-demo
 # Controls when the action will run. 
 
 
-
+ 
 on:
   push:
     branches:
