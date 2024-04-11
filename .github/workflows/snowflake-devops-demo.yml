@@ -42,12 +42,12 @@ jobs:
           git config --global user.name "Testaccountforcon"
           git rm -rf latest\ schema\ pull
           git rm -rf migrations/diff.txt
-          git rm -rf migrations/chemacheck.txt
+          git rm -rf migrations/schemacheck.txt
           git commit -m "commit message"
           git push origin master
-          if ! grep -q . "migrations/chemacheck.txt";
+          if ! grep -q . "migrations/schemacheck.txt";
           then
-            python migrations/testpy2.py
+            python migrations/schema_comparison.py
           fi
           git ls-files
           
