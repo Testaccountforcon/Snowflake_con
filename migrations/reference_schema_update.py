@@ -127,10 +127,11 @@ for i in databases:
         print(procedures_sql)
 
         if cur.rowcount!=0:
-            if(k!='SYSTEM$SEND_EMAIL'):
+            
              procedures_df = pd.DataFrame(cur.fetchall())
              procedures_df.columns = [column[0] for column in cur.description]
              for k in procedures_df['name']:
+                 if(k!='SYSTEM$SEND_EMAIL'):
                     path = (parent_dir+ db_directory+sc_directory+'Procedures'+k)
                     db_schema_procedures=i+"."+j+"."+k
                     definition_cursor= cur.execute(f"select get_ddl  ('procedure','{db_schema_procedures}');") 
