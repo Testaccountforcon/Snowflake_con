@@ -27,7 +27,7 @@ def count_files_in_directory(directory_path):
 
 if(count_files_in_directory("latest schema pull") != count_files_in_directory("Reference Schema")):
   repo = g.get_user().get_repo("Snowflake_con")
-  contents = repo.get_contents("migrations/schemacheck.txt", ref="main")  
+  contents = repo.get_contents("migrations/schemacheck.txt")  
   repo.update_file("migrations/schemacheck.txt","updating","Untracked files in Snpwflake",contents.sha,branch ="main")
 
 # update
