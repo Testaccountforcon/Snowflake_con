@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 from github import Github
-from dotenv import load_dotenv
+
 from ffcount import ffcount
 load_dotenv()
 from github import GithubIntegration
