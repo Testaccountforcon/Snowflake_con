@@ -84,7 +84,7 @@ if(a==[]):
 else:
  jobstatus = "change"
 s=''.join(a)
-repo.create_file("migrations/chemacheck.txt", "jobstatus", jobstatus, branch="master")
+repo.create_file("migrations/schemacheck.txt", "jobstatus", jobstatus, branch="master")
 repo.create_file("migrations/diff.txt", "diff", s, branch="master")
 
 
