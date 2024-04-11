@@ -71,8 +71,76 @@ for i in databases:
                     print(output)
                     repo.create_file(def_file_path, "messagess", output, branch="master")
                   
-                 
-        else:
-             g=0
+
+for i in databases:
+    db_directory = i
+    sql = cur.execute(f"show schemas in {i}")
+    df = pd.DataFrame(cur.fetchall())
+    df.columns = [column[0] for column in cur.description]
+    print(df)
+    
+    for j in df['name']:
+       if(j!='INFORMATION_SCHEMA'):
+        sc_directory = j
+        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
+        viewspath = (parent_dir+ db_directory+sc_directory+'Views')
+        #procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
+        db_schema=i +"." + j
+        print (db_schema)
+        views_sql = cur.execute(f"show views in {db_schema}")
+        
+        print(views_sql)
+
+        if cur.rowcount!=0:
+             views_df = pd.DataFrame(cur.fetchall())
+             views_df.columns = [column[0] for column in cur.description]
+             for k in views_df['name']:
+                    path = (parent_dir+ db_directory+sc_directory+'Views'+k)
+                    db_schema_view=i+"."+j+"."+k
+                    definition_cursor= cur.execute(f"select get_ddl  ('view','{db_schema_view}');") 
+                    results=cur.fetchall()
+                    def_file_path=parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt"
+                    print(def_file_path)
+                    output="".join(results[0])
+                    print(output)
+                    repo.create_file(def_file_path, "message", output, branch="master")
+                   
+                     
+
+for i in databases:
+    db_directory = i
+    sql = cur.execute(f"show schemas in {i}")
+    df = pd.DataFrame(cur.fetchall())
+    df.columns = [column[0] for column in cur.description]
+    print(df)
+    
+    for j in df['name']:
+       if(j!='INFORMATION_SCHEMA'):
+        sc_directory = j
+        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
+        #viewspath = (parent_dir+ db_directory+sc_directory+'Views')
+        procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
+        db_schema=i +"." + j
+        print (db_schema)
+        procedures_sql = cur.execute(f"show views in {db_schema}")
+        
+        print(procedures_sql)
+
+        if cur.rowcount!=0:
+             procedures_df = pd.DataFrame(cur.fetchall())
+             procedures_df.columns = [column[0] for column in cur.description]
+             for k in procedures_df['name']:
+                    path = (parent_dir+ db_directory+sc_directory+'Procedures'+k)
+                    db_schema_procedures=i+"."+j+"."+k
+                    definition_cursor= cur.execute(f"select get_ddl  ('Procedures','{db_schema_procedures}');") 
+                    results=cur.fetchall()
+                    def_file_path=parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt"
+                    print(def_file_path)
+                    output="".join(results[0])
+                    print(output)
+                    repo.create_file(def_file_path, "message", output, branch="master")
+                   
+               
+    
         
         
