@@ -172,7 +172,11 @@ for i in databases:
                      print ("Error")
                
            
-
+g.close()
+g = Github(auth=auth)
+for repo in g.get_user().get_repos():
+    print(repo.name)
+ 
 print(count_files_in_directory("Reference Schema"))
 print(count_files_in_directory("latest schema pull"))
 jobstatus=""
