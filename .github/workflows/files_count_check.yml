@@ -6,10 +6,10 @@ name: files_count_check
 
 
 on:
-  workflow_run:
-    workflows: ["snowflake-devops-demo"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["snowflake-devops-demo"]
+  #   types:
+  #     - completed
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -36,7 +36,8 @@ jobs:
           pip3 install PyGithub
           pip install auth
           pip install ffcount
-          python migrations/number_of_files_check.py
+          git diff latest\ schema \pull Reference\ Schema
+          # python migrations/number_of_files_check.py
           
           
           
