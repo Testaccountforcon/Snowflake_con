@@ -34,7 +34,7 @@ jobs:
         run: |
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Admin"
-          git diff "Reference Schema" "latest schema pull" > migrations/difference.txt
+          git diff --no-index "Reference Schema" "latest schema pull" > migrations/difference.txt
           git add migrations/difference.txt
           git commit -m "difference file generated"
           git push origin
