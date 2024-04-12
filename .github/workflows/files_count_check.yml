@@ -34,11 +34,11 @@ jobs:
         run: |
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Admin"
-          git diff "Reference Schema" "latest schema pull" > testing.txt
+          git diff "Reference Schema" > testing.txt
           ls
-          git add --a
-          git commit -m "sda"
-          git push
+          # git add --a
+          # git commit -m "sda"
+          # git push
           # git pull
           # git diff --no-index "Reference Schema" "latest schema pull" > migrations/schemacheck.txt
           # git add --a
