@@ -36,7 +36,7 @@ jobs:
           # pip3 install PyGithub
           # pip install auth
           # pip install ffcount
-          git diff latest\ schema\ pull Reference\ Schema 
+          git diff latest\ schema\ pull Reference\ Schema > migrations/difference.txt
           # python migrations/number_of_files_check.py
           
           
