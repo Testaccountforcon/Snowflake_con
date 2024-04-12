@@ -34,8 +34,7 @@ jobs:
         run: |
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Admin"
-          rm -f .git/index.lock
-          rm .git/.COMMIT_EDITMSG.swp
+          
 
           git pull
           git diff --no-index "Reference Schema" "latest schema pull" > migrations/schemacheck.txt
