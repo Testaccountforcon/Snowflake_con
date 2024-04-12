@@ -31,13 +31,9 @@ jobs:
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
         
 
-        run: |
-          # pip install pandas
-          # pip3 install PyGithub
-          # pip install auth
-          # pip install ffcount
-          git diff latest\ schema\ pull Reference\ Schema > migrations/difference.txt
-          # python migrations/number_of_files_check.py
+        run: 
+         git diff latest\ schema\ pull Reference\ Schema > migrations/difference.txt
+         
           
           
           
