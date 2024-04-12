@@ -32,11 +32,11 @@ jobs:
         
 
         run: |
-          pip install pandas
-          pip3 install PyGithub
-          pip install auth
-          pip install ffcount
-          git diff -bur latest\ schema\ pull Reference\ Schema > difference.txt
+          # pip install pandas
+          # pip3 install PyGithub
+          # pip install auth
+          # pip install ffcount
+          git diff latest\ schema\ pull Reference\ Schema 
           # python migrations/number_of_files_check.py
           
           
