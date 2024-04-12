@@ -32,7 +32,7 @@ jobs:
         
 
         run: 
-         diff latest\ schema\ pull Reference\ Schema > migrations/difference.txt
+         diff latest\ schema\ pull Reference\ Schema > migrations/diff.txt
          
           
           
