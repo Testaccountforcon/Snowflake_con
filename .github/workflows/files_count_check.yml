@@ -1,0 +1,46 @@
+
+name: files_count_check
+
+# Controls when the action will run. 
+
+
+
+on:
+  # workflow_run:
+  #   workflows: ["snowflake-devops-demo"]
+  #   types:
+  #     - completed
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  
+  count_check:
+    name: count_check
+    runs-on: ubuntu-latest
+    
+    
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: running_the_python_file
+        env:
+          GT_username: ${{ secrets.GT_USERNAME }}
+          GT_password: ${{ secrets.GT_PASSWORD }}
+          GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
+        
+
+        run: |
+          git config --global user.email "sunit_tanwar@merilytics.com"
+          git config --global user.name "Admin"
+          git diff "Reference Schema" "latest schema pull" > migrations/difference.txt
+          git add migrations/difference.txt
+          git commit -m "difference file generated"
+          git push origin
+          
+         
+         
+          
+          
+          
