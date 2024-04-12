@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: running_the_python_file
         env:
           GT_username: ${{ secrets.GT_USERNAME }}
