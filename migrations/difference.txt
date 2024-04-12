@@ -1,0 +1,57 @@
+diff --git a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW/TEST_VIEW.txt b/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW/TEST_VIEW.txt
+deleted file mode 100644
+index 375f0d7..0000000
+--- a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW/TEST_VIEW.txt	
++++ /dev/null
+@@ -1,6 +0,0 @@
+-create or replace view TEST_VIEW(
+-	FIRST_NAME,
+-	LAST_NAME
+-) as
+-     select *
+-     from demo_db.demo.hello_world;
+\ No newline at end of file
+diff --git a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW4/TEST_VIEW4.txt b/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW4/TEST_VIEW4.txt
+deleted file mode 100644
+index b153c92..0000000
+--- a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW4/TEST_VIEW4.txt	
++++ /dev/null
+@@ -1,6 +0,0 @@
+-create or replace view TEST_VIEW4(
+-	FIRST_NAME,
+-	LAST_NAME
+-) as
+-     select *
+-     from demo_db.demo.hello_world;
+\ No newline at end of file
+diff --git a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW5/TEST_VIEW5.txt b/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW5/TEST_VIEW5.txt
+deleted file mode 100644
+index 89a5320..0000000
+--- a/Reference Schema/DEMO_DB/PUBLIC/Views/TEST_VIEW5/TEST_VIEW5.txt	
++++ /dev/null
+@@ -1,6 +0,0 @@
+-create or replace view TEST_VIEW5(
+-	FIRST_NAME,
+-	LAST_NAME
+-) as
+-     select *
+-     from demo_db.demo.hello_world;
+\ No newline at end of file
+diff --git a/Reference Schema/DEMO_DB/SCHEMACHANGE/Tables/CHANGE_HISTORY/CHANGE_HISTORY.txt b/Reference Schema/DEMO_DB/SCHEMACHANGE/Tables/CHANGE_HISTORY/CHANGE_HISTORY.txt
+deleted file mode 100644
+index 9f280a4..0000000
+--- a/Reference Schema/DEMO_DB/SCHEMACHANGE/Tables/CHANGE_HISTORY/CHANGE_HISTORY.txt	
++++ /dev/null
+@@ -1,11 +0,0 @@
+-create or replace TABLE CHANGE_HISTORY (
+-	VERSION VARCHAR(16777216),
+-	DESCRIPTION VARCHAR(16777216),
+-	SCRIPT VARCHAR(16777216),
+-	SCRIPT_TYPE VARCHAR(16777216),
+-	CHECKSUM VARCHAR(16777216),
+-	EXECUTION_TIME NUMBER(38,0),
+-	STATUS VARCHAR(16777216),
+-	INSTALLED_BY VARCHAR(16777216),
+-	INSTALLED_ON TIMESTAMP_LTZ(9)
+-);
+\ No newline at end of file
