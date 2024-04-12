@@ -1,1 +1,0 @@
-latest schema pull/DEMO_DB/PUBLIC/Tables/ANOTHER_TABLE/ANOTHER_TABLE.txt
