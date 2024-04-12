@@ -49,4 +49,5 @@ jobs:
           
           python migrations/schema_comparison.py
           git ls-files
+          git pull
           
