@@ -36,12 +36,12 @@ jobs:
           git config --global user.name "Admin"
           
 
-          git pull
+          # git pull
           git diff --no-index "Reference Schema" "latest schema pull" > migrations/schemacheck.txt
-          git add --a
+          # git add --a
           
-          git commit -m "difference file generated"
-          git push origin
+          # git commit -m "difference file generated"
+          # git push origin
           
          
          
