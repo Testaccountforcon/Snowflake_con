@@ -32,7 +32,7 @@ jobs:
         
 
         run: |
-          git diff "latest schema pull" "Reference Schema" > migrations/difference.txt
+          git diff "Reference Schema/DEMO_DB/DEMO/Tables/HELLO_WORLD/HELLO_WORLD.txt" "latest schema pull/DEMO_DB/DEMO/Tables/HELLO_WORLD/HELLO_WORLD.txt" > migrations/difference.txt
           
          
          
