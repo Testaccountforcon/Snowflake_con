@@ -36,6 +36,8 @@ jobs:
           git config --global user.name "Admin"
           git diff "Reference Schema" > testing.txt
           ls
+          git add --a
+          git commit -m "sda"
           # git pull
           # git diff --no-index "Reference Schema" "latest schema pull" > migrations/schemacheck.txt
           # git add --a
