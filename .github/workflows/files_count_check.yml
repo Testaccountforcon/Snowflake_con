@@ -36,12 +36,12 @@ jobs:
         run: |
           git config --global user.email "sunit_tanwar@merilytics.com"
           git config --global user.name "Admin"
-          git fetch
-          git diff "Reference Schema" "latest schema pull" > testing.txt
-          ls
-          git clone ssh://github.com/Testaccountforcon/Snowflake_con
-          git push
-          
+          pip install pandas
+          pip3 install PyGithub
+          pip install auth
+          pip install ffcount
+          python migrations/number_of_files_check.py
+ 
           # git add --a
           # git commit -m "sda"
           # git push
