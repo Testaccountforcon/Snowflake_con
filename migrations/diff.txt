@@ -1,0 +1,1 @@
+latest schema pull/DEMO_DB/PUBLIC/Views/TEST_VIEW_8/TEST_VIEW_8.txt
