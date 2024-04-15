@@ -74,7 +74,11 @@ for i in databases:
                     repo.create_file(def_file_path, "message", output, branch="master")
                     repo_name = g.get_user().get_repo("Snowflake_con")
                     contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
-                    contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    try:
+                     contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                    except:
+                     a.append(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Tables' + "/" +k + "/" + k +".txt")
+                     continue
                     if(contents_1.decoded_content.decode() == contents_2.decoded_content.decode()):
                      print("match")
                     else:
@@ -120,7 +124,11 @@ for i in databases:
                     repo.create_file(def_file_path, "message", output, branch="master")
                     repo_name = g.get_user().get_repo("Snowflake_con")
                     contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt")
-                    contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt")
+                    try:
+                     contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt")
+                    except:
+                     a.append(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt")
+                     continue
                     if(contents_1.decoded_content.decode() == contents_2.decoded_content.decode()):
                      print("match")
                     else:
@@ -164,7 +172,11 @@ for i in databases:
                     repo.create_file(def_file_path, "message", output, branch="master")
                     repo_name = g.get_user().get_repo("Snowflake_con")
                     contents_1 = repo_name.get_contents(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt")
-                    contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt")
+                    try:
+                     contents_2 = repo_name.get_contents("Reference Schema"+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt")
+                    except:
+                     a.append(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt")
+                     continue
                     if(contents_1.decoded_content.decode() == contents_2.decoded_content.decode()):
                      print("match")
                     else:
