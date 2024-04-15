@@ -1,0 +1,3 @@
+create or replace TABLE TABLE6 (
+	FIRST_NAME VARCHAR(16777216)
+);
