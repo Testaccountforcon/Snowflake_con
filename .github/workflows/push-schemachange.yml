@@ -69,8 +69,8 @@ jobs:
             git config --global user.email "sunit_tanwar@merilytics.com"
             git config --global user.name "Testaccountforcon"
             git rm -rf reference-schema
-            git commit -m "commit message"
-            git push origin master
+            # git commit -m "commit message"
+            # git push origin master
             python migrations/reference_schema_update.py
           fi  
           
