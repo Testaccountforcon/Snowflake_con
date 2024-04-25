@@ -189,8 +189,8 @@ g = Github(auth=auth)
 for repo in g.get_user().get_repos():
     print(repo.name)
  
-print(count_files_in_directory("Reference Schema"))
-print(count_files_in_directory("latest schema pull"))
+print(count_files_in_directory("reference-schema"))
+print(count_files_in_directory("latest-schema-pull"))
 jobstatus=""
 if(a==[]):
  jobstatus=""
