@@ -35,7 +35,7 @@ connection = connect(
     )
 cur = connection.cursor()
 databases = ['DEMO_DB']
-parent_dir = 'Reference Schema'
+parent_dir = 'reference-schema'
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
