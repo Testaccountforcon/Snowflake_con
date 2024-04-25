@@ -35,17 +35,17 @@ jobs:
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         
         run: |
-          # if ! grep -q . "migrations/schemacheck.txt";
-          # then
-          #   echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          #   python --version
-          #   echo "Step 1: Installing schemachange"
-          #   pip install schemachange        
-          #   echo "Step 2: Running schemachange"
-          #   git ls-files
-          #   echo "empty file detected"
-          #   schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
-          # fi
+          if ! grep -q . "migrations/schemacheck.txt";
+          then
+            echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+            python --version
+            echo "Step 1: Installing schemachange"
+            pip install schemachange        
+            echo "Step 2: Running schemachange"
+            git ls-files
+            echo "empty file detected"
+            schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
+          fi
   Schema_extration:
     name: Schema Extraction
     runs-on: ubuntu-latest
@@ -68,9 +68,9 @@ jobs:
             pip install python-dotenv
             git config --global user.email "sunit_tanwar@merilytics.com"
             git config --global user.name "Testaccountforcon"
-            # git rm -rf reference-schema
-            # git commit -m "commit message"
-            # git push origin master
+            git rm -rf reference-schema
+            git commit -m "commit message"
+            git push origin master
             python migrations/reference_schema_update.py
           fi  
           
