@@ -11,13 +11,8 @@ from github import GithubIntegration
 from github import Auth
 b = os.environ['GT_auth_token']
 print(b)
- #g = Github(username,password)
- #login = requests.get('https://github.com/Testaccountforcon/Snowflake_con', auth=(username,password))
 auth = Auth.Token(b)
 a=[]
-# First create a Github instance:
-
-# Public Web Github
 g = Github(auth=auth)
 for repo in g.get_user().get_repos():
     print(repo.name)
@@ -29,7 +24,6 @@ connection = connect(
         account='ocdaqur-ut77239',
         warehouse = 'COMPUTE_WH',
         database = 'DEMO_DB',
-        #schema = 'PUBLIC'
     )
 cur = connection.cursor()
 databases = ['DEMO_DB']
@@ -51,8 +45,6 @@ for i in databases:
     for j in df['name']:
         sc_directory = j
         tablespath = (parent_dir + db_directory+sc_directory+'Tables')
-        #viewspath = (parent_dir+ db_directory+sc_directory+'Views')
-        #procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
         db_schema=i +"." + j
         print (db_schema)
         tables_sql = cur.execute(f"show tables in {db_schema}")
@@ -100,9 +92,9 @@ for i in databases:
     for j in df['name']:
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
-        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
+       
         viewspath = (parent_dir+ db_directory+sc_directory+'Views')
-        #procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
+       
         db_schema=i +"." + j
         print (db_schema)
         views_sql = cur.execute(f"show views in {db_schema}")
@@ -146,8 +138,7 @@ for i in databases:
     for j in df['name']:
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
-        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
-        #viewspath = (parent_dir+ db_directory+sc_directory+'Views')
+      
         procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
         db_schema=i +"." + j
         print (db_schema)
@@ -184,13 +175,9 @@ for i in databases:
                      print ("Error")
                
            
-g.close()
-g = Github(auth=auth)
-for repo in g.get_user().get_repos():
-    print(repo.name)
+
  
-print(count_files_in_directory("reference-schema"))
-print(count_files_in_directory("latest-schema-pull"))
+
 jobstatus=""
 if(a==[]):
  jobstatus=""
@@ -199,7 +186,7 @@ else:
  
 s=''.join(a)
 repo.create_file("migrations/schemacheck.txt", "jobstatus", jobstatus, branch="master")
-repo.create_file("migrations/diff.txt", "diff", s, branch="master")
+
 
 
 
