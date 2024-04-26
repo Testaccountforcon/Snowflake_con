@@ -54,6 +54,12 @@ jobs:
         uses: actions/checkout@v2
       - name: running the python file
         env:
+          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
+          SF_ROLE: ${{ secrets.SF_ROLE }}
+          SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
+          SF_DATABASE: ${{ secrets.SF_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           GT_username: ${{ secrets.GT_USERNAME }}
           GT_password: ${{ secrets.GT_PASSWORD }}
           GT_auth_token: ${{ secrets.GT_AUTH_TOKEN }}
@@ -64,6 +70,7 @@ jobs:
             pip3 install PyGithub
             pip install auth
             pip install snowflake-connector-python
+            python -c 'import os;print(os.environ)'
             pip install python-dotenv
             git config --global user.email "sunit_tanwar@merilytics.com"
             git config --global user.name "Testaccountforcon"
