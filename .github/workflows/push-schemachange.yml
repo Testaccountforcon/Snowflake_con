@@ -1,4 +1,5 @@
 name: push-schemachange
+# This workflow runs after successful completion of workflow 'files_count_check'
 on:
   workflow_run:
     workflows: ["files_count_check"]
@@ -6,11 +7,10 @@ on:
       - completed
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-    
+   
 jobs:
 
-  
+# This jobs deploys the GitHub changes to Snowflake using Schemachange
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
     
@@ -33,7 +33,7 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
-        
+# If schemacheck.txt is empty(i.e. GitHub and Snowflake Schemas match), then Schemachange pushes GitHub change script to Snowflake
         run: |
           if ! grep -q . "migrations/schemacheck.txt";
           then
@@ -42,10 +42,9 @@ jobs:
             echo "Step 1: Installing schemachange"
             pip install schemachange        
             echo "Step 2: Running schemachange"
-            git ls-files
-            echo "empty file detected"
             schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY
           fi
+  # This job extracts the latest schema from Snowflake after changes have been pushed to Snowflake using Schemachange and stores it in 'reference-schema'
   Schema_extration:
     name: Schema Extraction
     runs-on: ubuntu-latest
