@@ -1,10 +1,7 @@
-
+# This workflow checks if the number of files imported from Snowflake is equal to the number of files in 'reference-schema' and stores the output in "schemacheck.txt"
 name: files_count_check
 
 # Controls when the action will run. 
-
-
-
 on:
   workflow_run:
     workflows: ["snowflake-devops-demo"]
@@ -18,7 +15,6 @@ jobs:
   count_check:
     name: count_check
     runs-on: ubuntu-latest
-    
     
     
     steps:
