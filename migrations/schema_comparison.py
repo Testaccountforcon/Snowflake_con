@@ -19,11 +19,11 @@ for repo in g.get_user().get_repos():
  
 
 connection = connect(
-        user='Testaccountforcon',
-        password='Merilytics&Employ123!@#',
-        account='ocdaqur-ut77239',
-        warehouse = 'COMPUTE_WH',
-        database = 'DEMO_DB',
+        user=os.environ['SF_USERNAME'],
+        password=os.environ['SF_PASSWORD'],
+        account=os.environ['SF_ACCOUNT'],
+        warehouse = os.environ['SF_WAREHOUSE'],
+        database = os.environ['SF_DATABASE'],
     )
 cur = connection.cursor()
 databases = ['DEMO_DB']
