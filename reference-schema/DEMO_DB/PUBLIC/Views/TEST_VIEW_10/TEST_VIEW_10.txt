@@ -1,0 +1,6 @@
+create or replace view TEST_VIEW_10(
+	FIRST_NAME,
+	LAST_NAME
+) as
+  select *
+  from demo_db.demo.hello_world;
