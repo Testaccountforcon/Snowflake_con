@@ -3,39 +3,35 @@ import os
 from snowflake.connector import connect
 import pandas as pd
 from snowflake.connector import connect
-
 from github import Github
 from dotenv import load_dotenv
-
 load_dotenv()
 
-
 # Authentication is defined via github.Auth
+# Logging into GitHub repo using Authentication token
 from github import Auth
-
 b = os.environ['GT_auth_token']
 print(b)
-
 auth = Auth.Token(b)
-
-# First create a Github instance:
-
-# Public Web Github
 g = Github(auth=auth)
 for repo in g.get_user().get_repos():
     print(repo.name)
 
+# Connecting to Snowflake database using Action Secrets
 connection = connect(
-        user='Testaccountforcon',
-        password='Merilytics&Employ123!@#',
-        account='ocdaqur-ut77239',
-        warehouse = 'COMPUTE_WH',
-        database = 'DEMO_DB',
+        user=os.environ["SF_USERNAME"],
+        password=os.environ['SNOWFLAKE_PASSWORD'],
+        account=os.environ['SF_ACCOUNT'],
+        warehouse = os.environ['SF_WAREHOUSE'],
+        database = os.environ['SF_DATABASE'],
       
     )
 cur = connection.cursor()
+# Specifying which databases to consider for schema comparison. This list can be modified to include other databases
 databases = ['DEMO_DB']
+# Creating a varaible to calculate the path where definitions imported from Snowflake will be stored.
 parent_dir = 'reference-schema'
+# This loop imports all the view definitions and store them in 'reference-schema'.
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
@@ -71,7 +67,7 @@ for i in databases:
                     print(output)
                     repo.create_file(def_file_path, "messagess", output, branch="master")
                   
-
+# This loop imports all the view definitions and store them in 'reference-schema'.
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
@@ -106,7 +102,7 @@ for i in databases:
                     repo.create_file(def_file_path, "message", output, branch="master")
                    
                      
-
+# This loop imports all the procedure definitions and store them in 'reference-schema'.
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
