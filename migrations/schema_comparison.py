@@ -8,6 +8,7 @@ load_dotenv()
 from github import GithubIntegration
 
 # Authentication is defined via github.Auth
+# Logging into GitHub repo using Authentication token
 from github import Auth
 b = os.environ['GT_auth_token']
 print(b)
@@ -17,7 +18,7 @@ g = Github(auth=auth)
 for repo in g.get_user().get_repos():
     print(repo.name)
  
-
+# Connecting to Snowflake database using Action Secrets
 connection = connect(
         user=os.environ["SF_USERNAME"],
         password=os.environ['SNOWFLAKE_PASSWORD'],
@@ -26,14 +27,15 @@ connection = connect(
         database = os.environ['SF_DATABASE'],
     )
 cur = connection.cursor()
+# Specifying which databases to consider for schema comparison. This list can be modified to include other databases
 databases = ['DEMO_DB']
+# Creating a varaible to calculate the path where definitions imported from Snowflake will be stored.
 parent_dir = 'latest-schema-pull'
 
-def count_files_in_directory(directory_path):
-    num_files, _ = ffcount(directory_path)
-    return num_files
 
 
+# This loop imports all the table definitions and store them in 'latest-schema-pull'. 
+# For each imported table, 'reference-schema-pull' is searched for the same table name and definitions are compared to ensure that the definitions match.
 
 for i in databases:
     db_directory = i
@@ -81,7 +83,8 @@ for i in databases:
                  
         else:
              f=0
-
+# This loop imports all the views definitions and store them in 'latest-schema-pull'
+# For each imported view, 'reference-schema-pull' is searched for the same table name and definitions are compared to ensure that the definitions match.
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
@@ -90,6 +93,7 @@ for i in databases:
     print(df)
     
     for j in df['name']:
+# Excluding the shared entities created by Snowflake by default as DDL commands can't be run on those.
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
        
@@ -127,7 +131,8 @@ for i in databases:
                      a.append(parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Views' + "/" +k + "/" + k +".txt")
                      print ("Error")
                      
-
+# This loop imports all the procedure definitions and store them in 'latest-schema-pull'
+# For each imported procedure, 'reference-schema-pull' is searched for the same table name and definitions are compared to ensure that the definitions match.
 for i in databases:
     db_directory = i
     sql = cur.execute(f"show schemas in {i}")
@@ -136,6 +141,7 @@ for i in databases:
     print(df)
     
     for j in df['name']:
+# Excluding the shared entities created by Snowflake by default as DDL commands can't be run on those.
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
       
@@ -176,15 +182,13 @@ for i in databases:
                
            
 
- 
-
 jobstatus=""
 if(a==[]):
  jobstatus=""
 else:
  jobstatus = "Definition Mismatch"
- 
 s=''.join(a)
+# Writing the output of schema comparison to migrations/schemacheck.txt
 repo.create_file("migrations/schemacheck.txt", "jobstatus", jobstatus, branch="master")
 
 
