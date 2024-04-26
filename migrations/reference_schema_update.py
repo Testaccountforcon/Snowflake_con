@@ -31,7 +31,7 @@ connection = connect(
         account='ocdaqur-ut77239',
         warehouse = 'COMPUTE_WH',
         database = 'DEMO_DB',
-        #schema = 'PUBLIC'
+      
     )
 cur = connection.cursor()
 databases = ['DEMO_DB']
@@ -82,9 +82,9 @@ for i in databases:
     for j in df['name']:
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
-        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
+        
         viewspath = (parent_dir+ db_directory+sc_directory+'Views')
-        #procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
+        
         db_schema=i +"." + j
         print (db_schema)
         views_sql = cur.execute(f"show views in {db_schema}")
@@ -117,8 +117,7 @@ for i in databases:
     for j in df['name']:
        if(j!='INFORMATION_SCHEMA'):
         sc_directory = j
-        #tablespath = (parent_dir + db_directory+sc_directory+'Tables')
-        #viewspath = (parent_dir+ db_directory+sc_directory+'Views')
+       
         procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
         db_schema=i +"." + j
         print (db_schema)
