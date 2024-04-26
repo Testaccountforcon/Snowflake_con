@@ -20,7 +20,7 @@ for repo in g.get_user().get_repos():
 
 connection = connect(
         user=os.environ["SF_USERNAME"],
-        password=os.environ['SF_PASSWORD'],
+        password=os.environ['SNOWFLAKE_PASSWORD'],
         account=os.environ['SF_ACCOUNT'],
         warehouse = os.environ['SF_WAREHOUSE'],
         database = os.environ['SF_DATABASE'],
