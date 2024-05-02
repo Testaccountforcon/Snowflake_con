@@ -1,0 +1,3 @@
+create or replace TABLE START_DATE (
+	DATE DATE
+);
