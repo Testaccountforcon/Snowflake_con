@@ -103,39 +103,39 @@ for i in databases:
                    
                      
 # This loop imports all the procedure definitions and store them in 'reference-schema'.
-for i in databases:
-    db_directory = i
-    sql = cur.execute(f"show schemas in {i}")
-    df = pd.DataFrame(cur.fetchall())
-    df.columns = [column[0] for column in cur.description]
-    print(df)
+# for i in databases:
+#     db_directory = i
+#     sql = cur.execute(f"show schemas in {i}")
+#     df = pd.DataFrame(cur.fetchall())
+#     df.columns = [column[0] for column in cur.description]
+#     print(df)
     
-    for j in df['name']:
-       if(j!='INFORMATION_SCHEMA'):
-        sc_directory = j
+#     for j in df['name']:
+#        if(j!='INFORMATION_SCHEMA'):
+#         sc_directory = j
        
-        procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
-        db_schema=i +"." + j
-        print (db_schema)
-        procedures_sql = cur.execute(f"show procedures in {db_schema}")
+#         procedurespath = (parent_dir+ db_directory+sc_directory+'Procedures')
+#         db_schema=i +"." + j
+#         print (db_schema)
+#         procedures_sql = cur.execute(f"show procedures in {db_schema}")
         
-        print(procedures_sql)
+#         print(procedures_sql)
 
-        if cur.rowcount!=0:
+#         if cur.rowcount!=0:
             
-             procedures_df = pd.DataFrame(cur.fetchall())
-             procedures_df.columns = [column[0] for column in cur.description]
-             for k in procedures_df['name']:
-                 if(k!='SYSTEM$SEND_EMAIL'):
-                    path = (parent_dir+ db_directory+sc_directory+'Procedures'+k)
-                    db_schema_procedures=i+"."+j+"."+k
-                    definition_cursor= cur.execute(f"select get_ddl  ('procedure','{db_schema_procedures}');") 
-                    results=cur.fetchall()
-                    def_file_path=parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt"
-                    print(def_file_path)
-                    output="".join(results[0])
-                    print(output)
-                    repo.create_file(def_file_path, "message", output, branch="master")
+#              procedures_df = pd.DataFrame(cur.fetchall())
+#              procedures_df.columns = [column[0] for column in cur.description]
+#              for k in procedures_df['name']:
+#                  if(k!='SYSTEM$SEND_EMAIL'):
+#                     path = (parent_dir+ db_directory+sc_directory+'Procedures'+k)
+#                     db_schema_procedures=i+"."+j+"."+k
+#                     definition_cursor= cur.execute(f"select get_ddl  ('procedure','{db_schema_procedures}');") 
+#                     results=cur.fetchall()
+#                     def_file_path=parent_dir+"/"+ db_directory + "/" +sc_directory + "/" + 'Procedures' + "/" +k + "/" + k +".txt"
+#                     print(def_file_path)
+#                     output="".join(results[0])
+#                     print(output)
+#                     repo.create_file(def_file_path, "message", output, branch="master")
                    
                
     
