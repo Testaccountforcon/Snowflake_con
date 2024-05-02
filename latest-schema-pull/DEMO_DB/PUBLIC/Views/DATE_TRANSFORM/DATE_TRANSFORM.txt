@@ -1,6 +1,0 @@
-create or replace view DATE_TRANSFORM(
-	MONTH_OF_DATE
-) as (
-    select date_trunc('month', date) as month_of_date 
-    from start_date
-);
